@@ -1,5 +1,5 @@
 <template>
-  <div id="login-page">
+  <div class="login-page">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -12,12 +12,12 @@
                 </div>
               </div>
               <div class="tabs-section">
-                <a class="tab active">
+                 <router-link to="/" class="tab">
                   <span>Login</span>
-                </a>
-                <a class="tab">
+                </router-link>
+                <router-link class="tab" to="/register">
                   <span>Register</span>
-                </a>
+                </router-link>
               </div>
               <div class="form-section">
                 <div class="form-section-inner">
@@ -70,7 +70,7 @@
   @import '../../assets/sass/_variables';
 
 
-  #login-page {
+  .login-page {
     width: 100%;
     height: 100%;
     display: flex;
@@ -206,11 +206,12 @@
             color: #fff;
             text-align: center;
 
-            &.active {
+            &.router-link-exact-active {
               color: $main-color;
               background-color: #fff;
               color: #000;
               position:relative;
+
               
             }
           }

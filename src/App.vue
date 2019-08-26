@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <PageNavbar></PageNavbar>
     <router-view/>
   </div>
 </template>
@@ -8,8 +9,12 @@
 
 import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import PageNavbar from '@/components/layout/navbar.vue'
 export default {
   name: 'App',
+  components:{
+    PageNavbar
+  }
 }
 </script>
 

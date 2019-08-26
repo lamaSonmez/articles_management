@@ -28,7 +28,7 @@
                   <div class="form-container">
                     <form class="container">
                       <div class="row">
-                      <div class="form-group col-6">
+                        <div class="form-group col-6">
                           <label for="first_name" class="form-label"><span class="far fa-user icon"></span><span
                               class="text">First Name</span></label>
                           <input id="first_name" type="text" class="form-control">
@@ -148,49 +148,6 @@
               text-align: left;
               padding: 30px;
 
-              .form-group {
-                margin-top: 15px;
-                margin-bottom: 15px;
-
-                .form-label {
-                  color: rgba($text-color, 0.7);
-                  margin-bottom: 0px;
-
-                  .text {
-                    margin-left: 10px;
-                  }
-                }
-
-                .form-control {
-                  border: none;
-                  border-bottom: 1px solid $text-color;
-                  @include prefixer(border-radius, 0px, ($prefix-list));
-                  @include prefixer(transition, border-bottom-color 0.4s ease-in-out, ($prefix-list));
-                  outline: none;
-                  height: 25px;
-
-                  &:focus {
-                    outline: none;
-                    border-bottom-color: $accent-color;
-                    @include prefixer(box-shadow, none, ($prefix-list));
-                  }
-                }
-
-
-              }
-
-              .btn-primary {
-                margin-top: 20px;
-                background-color: $main-color;
-                width: 100%;
-                border-color: $main-color;
-                font-weight: 500;
-                font-size: 18px;
-
-                .icon {
-                  margin-left: 3px;
-                }
-              }
             }
           }
         }
@@ -212,7 +169,7 @@
             font-weight: 600;
             @include prefixer(border-top-left-radius, 17px, ($prefix-list));
             @include prefixer(border-bottom-left-radius, 17px, ($prefix-list));
-            width:100px;
+            width: 100px;
             color: #fff;
             text-align: center;
 
@@ -220,8 +177,8 @@
               color: $main-color;
               background-color: #fff;
               color: #000;
-              position:relative;
-              
+              position: relative;
+
             }
           }
         }
@@ -232,6 +189,3 @@
   }
 
 </style>
-
-
-

@@ -3,7 +3,7 @@
   <div class="articles-section">
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div class="col-8">
           <div class="row-title">
             <h4>Greate Articles</h4>
             <h2>Our Articles</h2>
@@ -12,20 +12,19 @@
             </div>
           </div>
         </div>
+        <div class="col-4">
+          <div class="add-btn-container">
+            <router-link to="/articles/add" class="btn btn-primary">
+              <span class="fas fa-plus icon"></span>
+              <span class="text">Add New Article</span>
+            </router-link>
+          </div>
+        </div>
       </div>
       <div class="row articles-container">
-        <div class="col-md-6 col-12">
-         <article-div></article-div>
-        </div>
-        <div class="col-md-6 col-12">
-         <article-div></article-div>
-        </div>
-        <div class="col-md-6 col-12">
-         <article-div></article-div>
-        </div>
-        <div class="col-md-6 col-12">
-         <article-div></article-div>
-        </div>
+          <div class="col-12">
+            <articles-table></articles-table>
+          </div>
 
       </div>
     </div>
@@ -35,11 +34,11 @@
 
 <script>
 
-    import ArticleDiv from './article'
+    import ArticlesTable from './articles_table'
   export default {
     name: 'ArticlesHome',
     components:{
-        ArticleDiv
+        ArticlesTable
     }
   }
 

@@ -64,14 +64,14 @@ ul {
         font-size: 13px;
         line-height: 26px;
         letter-spacing: 3px;
-        text-align: center;
+        text-align: left;
         margin-bottom: 10px;
         //font-family: "Montserrat", Arial, Helvetica, sans-serif;
     }
     h2 {
         color: $text-color;
         position: relative;
-        text-align: center;
+        text-align: left;
         // font-family: 'Lexend Zetta', sans-serif;
         &:after {
             content: '';
@@ -82,19 +82,19 @@ ul {
             left: 0;
             bottom: -10px;
             background-color: $main-color;
-            left: 50%;
+            left: 6%;
             @include prefixer(transform, translateX(-50%), ($prefix-list));
         }
     }
     .row-body {
-        width: 65%;
+        width: 100%;
         margin: 0 auto;
         margin-top: 20px;
         p {
             font-weight: 400;
             font-size: 16px;
             line-height: 24px;
-            text-align: center;
+            text-align: left;
             color: rgba($text-color, 0.7);
         }
     }

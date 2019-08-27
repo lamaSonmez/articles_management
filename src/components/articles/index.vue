@@ -22,10 +22,15 @@
         </div>
       </div>
       <div class="row articles-container">
-          <div class="col-12">
-            <articles-table></articles-table>
-          </div>
+        <div class="col-12">
+          <transition name="fade" v-if="isloading">
+            <loader></loader>
+          </transition>
+          <transition v-else>
+            <articles-table :articles="articles"></articles-table>
 
+          </transition>
+        </div>
       </div>
     </div>
   </div>
@@ -33,12 +38,33 @@
 </template>
 
 <script>
+  import ArticlesTable from './articles_table'
+  import Loader from '../loader'
 
-    import ArticlesTable from './articles_table'
+  import {
+    mapActions,
+    mapState
+  } from 'vuex'
+
   export default {
     name: 'ArticlesHome',
-    components:{
-        ArticlesTable
+    components: {
+      ArticlesTable,
+      Loader
+    },
+    data() {
+      return {
+        isloading: true,
+      }
+    },
+    computed: mapState({
+      articles: state => state.article.articles,
+    }),
+
+    created() {
+      this.$store.dispatch('fetchArticles').then(() => {
+        this.isloading = false;
+      })
     }
   }
 
@@ -54,7 +80,7 @@
 
     .articles-container {
       margin-top: 30px;
-    
+
     }
   }
 

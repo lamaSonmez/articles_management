@@ -11,17 +11,21 @@
     </thead>
     <tbody>
 
-      <tr id="0">
+      <tr  :id="item.id" v-for="item in articles">
         <td>
-          <img src="../../assets/images/article.jpg" style="width:60px;">
+          <img :src="item.image" style="width:60px;">
         </td>
-        <td>Title OF The Article</td>
-        <td>28 August 2019</td>
+        <td>{{item.title}}</td>
+        <td>{{item.date}}</td>
         <td>
-          <a style="margin:0px 5px;" class="far fa-edit btn btn-outline-info btn-sm" href="/"></a>
-          <a style="margin:0px 5px;" class="fas fa-eye-slash btn btn-outline-success btn-sm" title="view details" href="/"></a>
-          <a style="margin:0px 5px; color: #dc3545;" class="far fa-trash-alt btn btn-outline-danger btn-sm delete" data-action-name="/"
-            data-Controller-name="Articles" id="0"></a>
+          <router-link style="margin:0px 5px;" class="far fa-edit btn btn-outline-info btn-sm"  :to="{ name: 'EditArticle', params: { id: item.id } }"></router-link>
+          <a style="margin:0px 5px;" class="fas fa-eye-slash btn btn-outline-success btn-sm" title="view details" :href="'/articles/view/'+ item.id"></a>
+          <a style="margin:0px 5px; color: #dc3545;" class="far fa-trash-alt btn btn-outline-danger btn-sm delete" @click.prevent="DeleteArticle(item)"></a>
+        </td>
+      </tr>
+      <tr v-if="inProcess">
+        <td colspan="4" class="text-center">
+          <loader></loader>
         </td>
       </tr>
     </tbody>
@@ -30,8 +34,35 @@
 
 
 <script>
+import {
+    mapActions,
+    mapState
+  } from 'vuex'
+import Loader from '../loader'
+
   export default {
-    name: 'ArticlesTable'
+    name: 'ArticlesTable',
+    props:['articles'],
+     data() {
+      return {
+        selectedArticle: null,
+      }
+    },
+      components:{
+            Loader
+        },
+    methods:{
+      DeleteArticle(article){
+        if(confirm('Do you want to delete   ' + article.title +'??')){
+             this.$store.dispatch('removeArticle',article.id);
+        }
+      }
+    },
+    computed: mapState({
+        inProcess: state => state.article.inProcess,
+        }),
+    
+
   }
 
 </script>

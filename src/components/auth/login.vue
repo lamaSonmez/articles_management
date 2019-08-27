@@ -26,17 +26,17 @@
                     <h1>LigaData</h1>
                   </div>
                   <div class="form-container">
-                    <form class="container">
+                    <form class="container" @submit="login">
                       <div class="row">
                         <div class="form-group col-12">
                           <label for="email" class="form-label"><span class="far fa-user icon"></span><span
                               class="text">Email</span></label>
-                          <input id="email" type="email" class="form-control">
+                          <input id="email" type="email" class="form-control" v-model="email">
                         </div>
                         <div class="form-group col-12">
                           <label for="password" class="form-label"><span class="fas fa-key icon"></span><span
                               class="text">Password</span></label>
-                          <input id="password" type="password" class="form-control">
+                          <input id="password" type="password" class="form-control" v-model="password">
                         </div>
                         <div class=" form-group col-12">
                           <button type="submit" class="btn btn-primary">
@@ -60,7 +60,20 @@
 
 <script>
   export default {
-    name: 'Login'
+    name: 'Login',
+    data(){
+      return {
+        email : "",
+        password : ""
+      }
+    },
+    methods: {
+      login: function () {
+        const email = this.email 
+        const password = this.password
+        this.$store.dispatch('login', { email, password }).then(() => this.$router.push('/'))
+      }
+    }
   }
 
 </script>

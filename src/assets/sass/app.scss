@@ -97,5 +97,15 @@ ul {
             text-align: left;
             color: rgba($text-color, 0.7);
         }
+        .breadcrumb {
+            background-color: transparent;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            padding-left: 0px;
+            .breadcrumb-item+.breadcrumb-item::before {
+                content: '>>';
+                font-weight: 600;
+            }
+        }
     }
 }

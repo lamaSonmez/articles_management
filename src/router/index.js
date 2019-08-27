@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/auth/login'
 import Register from '@/components/auth/register'
 import ArticlesHome from '@/components/articles/index'
+import AddEditArticle from '@/components/articles/addedit'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
             path: '/articles',
             name: 'ArticlesHome',
             component: ArticlesHome
+        },
+        {
+            path: '/articles/slug',
+            name: 'AddEditArticle',
+            component: AddEditArticle
         }
     ]
 })

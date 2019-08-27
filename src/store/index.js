@@ -3,20 +3,14 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 import article from '../store/modules/article'
+import auth from '../store/modules/auth'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    state: {
-        accessToken: localStorage.getItem('acces_token') || '',
-        currentUser: {}
-    },
-    mutations: {},
-    actions: {
-
-    },
     modules: {
         article,
+        auth
     },
 
 })

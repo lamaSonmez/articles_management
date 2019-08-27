@@ -4,14 +4,14 @@
       <div class="row">
         <div class="col-12">
           <div class="row-title">
-            <h2>{{article.title}}</h2>
+            <h2 v-if="article">{{article.title}}</h2>
             <div class="row-body">
               <nav>
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
                     <router-link to="/">Articles</router-link>
                   </li>
-                  <li class="breadcrumb-item active">{{article.title}}</li>
+                  <li v-if="article" class="breadcrumb-item active">{{article.title}}</li>
                 </ol>
               </nav>
             </div>

@@ -12,7 +12,7 @@
                 </div>
               </div>
               <div class="tabs-section">
-                <router-link to="/" class="tab">
+                <router-link to="/login" class="tab">
                   <span>Login</span>
                 </router-link>
                 <router-link class="tab" to="/register">
@@ -26,33 +26,36 @@
                     <h1>LigaData</h1>
                   </div>
                   <div class="form-container">
-                    <form class="container" @submit="register">
+                    <form class="container" @submit.prevent="registerUser(user)">
                       <div class="row">
                         <div class="form-group col-6">
                           <label for="first_name" class="form-label"><span class="far fa-user icon"></span><span
                               class="text">First Name</span></label>
-                          <input id="first_name" type="text" class="form-control" v-model="first_name">
+                          <input id="first_name" type="text" class="form-control" v-model="user.first_name">
                         </div>
                         <div class="form-group col-6">
                           <label for="last_name" class="form-label"><span class="far fa-user icon"></span><span
                               class="text">Last Name</span></label>
-                          <input id="last_name" type="text" class="form-control" v-model="last_name">
+                          <input id="last_name" type="text" class="form-control" v-model="user.last_name">
                         </div>
                         <div class="form-group col-12">
                           <label for="email" class="form-label"><span class="far fa-envelope icon"></span><span
                               class="text">Email</span></label>
-                          <input id="email" type="email" class="form-control" v-model="email">
+                          <input id="email" type="email" class="form-control" v-model="user.email">
                         </div>
                         <div class="form-group col-12">
                           <label for="password" class="form-label"><span class="fas fa-key icon"></span><span
                               class="text">Password</span></label>
-                          <input id="password" type="password" class="form-control" v-model="password">
+                          <input id="password" type="password" class="form-control" v-model="user.password">
                         </div>
-                        <div class=" form-group col-12">
+                        <div class="form-group col-12">
                           <button type="submit" class="btn btn-primary">
-                            <span>Get Started</span>
+                            <span>Register</span>
                             <span class="far fa-paper-plane icon"></span>
                           </button>
+                        </div>
+                        <div class="col-12">
+                          <loader v-if="inProcess"></loader>
                         </div>
                       </div>
                     </form>
@@ -69,28 +72,35 @@
 </template>
 
 <script>
+import {
+    mapActions,
+    mapState
+  } from 'vuex'
+  import Loader from '../loader'
   export default {
     name: 'Register',
-    data(){
+    components:{
+      Loader
+    },
+    data() {
       return {
-        first_name : "",
-        last_name : "",
-        email : "",
-        password : ""
+        user: {
+          first_name: null,
+          last_name: null,
+          email: null,
+          password: null
+        }
       }
     },
-    methods:{
-      signup: function () {
-        let info = {
-          name: this.name,
-          email: this.email,
-          password: this.password
-        }
+    methods:mapActions({
+        registerUser: 'register'
+      }),
+      computed:mapState({
+        inProcess:state=>state.auth.inProcess,
+      })
 
-        this.$store.dispatch('signup', info).then(() => this.$router.push('/login'));
-    }
   }
-  }
+
 </script>
 
 <style lang="scss" scoped>

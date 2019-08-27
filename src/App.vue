@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <PageNavbar></PageNavbar>
+    <app-nav></app-nav>
     <router-view/>
+    <app-footer></app-footer>
   </div>
 </template>
 
@@ -9,11 +10,14 @@
 
 import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-import PageNavbar from '@/components/layout/navbar.vue'
+import AppNav from '@/components/layout/navbar.vue'
+import AppFooter from '@/components/layout/footer.vue'
+
 export default {
   name: 'App',
   components:{
-    PageNavbar
+    AppNav,
+    AppFooter
   }
 }
 </script>

@@ -12,7 +12,7 @@
                 </div>
               </div>
               <div class="tabs-section">
-                 <router-link to="/" class="tab">
+                 <router-link to="/login" class="tab">
                   <span>Login</span>
                 </router-link>
                 <router-link class="tab" to="/register">
@@ -26,23 +26,27 @@
                     <h1>LigaData</h1>
                   </div>
                   <div class="form-container">
-                    <form class="container" @submit="login">
+                    <form class="container" @submit.prevent="login(user)">
                       <div class="row">
                         <div class="form-group col-12">
                           <label for="email" class="form-label"><span class="far fa-user icon"></span><span
                               class="text">Email</span></label>
-                          <input id="email" type="email" class="form-control" v-model="email">
+                          <input id="email" type="email" class="form-control" v-model="user.email">
                         </div>
                         <div class="form-group col-12">
                           <label for="password" class="form-label"><span class="fas fa-key icon"></span><span
                               class="text">Password</span></label>
-                          <input id="password" type="password" class="form-control" v-model="password">
+                          <input id="password" type="password" class="form-control" v-model="user.password">
                         </div>
                         <div class=" form-group col-12">
                           <button type="submit" class="btn btn-primary">
                             <span>Get Started</span>
                             <span class="far fa-paper-plane icon"></span>
                           </button>
+                        </div>
+                        <div class="col-12">
+                          <loader v-if="inProcess"></loader>
+                          <p v-if="responseMessage">{{responseMessage}}</p>
                         </div>
                       </div>
                     </form>
@@ -59,22 +63,33 @@
 </template>
 
 <script>
+import {
+    mapActions,
+    mapState
+  } from 'vuex'
+import Loader from '../loader'
   export default {
     name: 'Login',
+    components:{
+      Loader
+    },
     data(){
       return {
-        email : "",
+       user:{
+          email : "",
         password : ""
+       }
       }
     },
-    methods: {
-      login: function () {
-        const email = this.email 
-        const password = this.password
-        this.$store.dispatch('login', { email, password }).then(() => this.$router.push('/'))
-      }
+    methods:mapActions({
+      login:'login'
+    }),
+    computed:mapState({
+       inProcess: state => state.auth.inProcess,
+       responseMessage:state=>state.auth.responseMessage,
+    })
     }
-  }
+  
 
 </script>
 

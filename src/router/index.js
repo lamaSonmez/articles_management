@@ -14,34 +14,62 @@ import EditArticle from '@/components/articles/edit'
 
 Vue.use(Router)
 
-export default new Router({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes: [{
-            path: '/',
-            name: 'ArticlesHome',
-            component: ArticlesHome
-        },
-        {
-            path: '/login',
-            name: 'Login',
-            component: Login
-        },
-        {
-            path: '/register',
-            name: 'Register',
-            component: Register
-        },
+const router = new Router({
+        mode: 'history',
+        base: process.env.BASE_URL,
+        routes: [{
+                path: '/',
+                name: 'ArticlesHome',
+                component: ArticlesHome,
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: '/login',
+                name: 'Login',
+                component: Login
+            },
+            {
+                path: '/register',
+                name: 'Register',
+                component: Register
+            },
 
-        {
-            path: '/articles/add',
-            name: 'AddArticle',
-            component: AddArticle
-        },
-        {
-            path: '/articles/edit/:id',
-            name: 'EditArticle',
-            component: EditArticle
+            {
+                path: '/articles/add',
+                name: 'AddArticle',
+                component: AddArticle,
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: '/articles/edit/:id',
+                name: 'EditArticle',
+                component: EditArticle,
+                meta: {
+                    requiresAuth: true
+                }
+            }
+        ]
+    })
+    //Global Guard
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        // this route requires auth, check if logged in
+        // if not, redirect to login page.
+        if (localStorage.getItem('access_token') == null || undefined) {
+            next({
+                path: '/login',
+                query: { redirect: to.fullPath }
+            })
+        } else {
+            next()
         }
-    ]
+    } else {
+        next() // make sure to always call next()!
+    }
 })
+
+export default router;

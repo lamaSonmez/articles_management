@@ -49,4 +49,5 @@ describe('articles_table.vue', () => {
 
     })
 
+
 })

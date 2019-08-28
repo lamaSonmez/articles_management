@@ -1,5 +1,5 @@
 <template>
-  <form id="articleForm" novalidate  name="form_article" @submit.prevent="saveArticle(article)">
+  <form id="articleForm" novalidate  name="form_article" @submit.prevent="storeArticle(article)">
     <div class="row">
       <div class="form-group col-12">
         <label>Title : </label>
@@ -105,7 +105,7 @@
        
       },
       ...mapActions({
-        saveArticle: 'storeArticle'
+        storeArticle: 'storeArticle'
       })
     },
     computed: mapState({

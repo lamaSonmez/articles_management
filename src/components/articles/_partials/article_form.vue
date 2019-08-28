@@ -150,6 +150,7 @@
     .img-preview {
       padding: 0px 80px 80px 80px;
       width: 100%;
+      border:1px solid #aaa;
 
       .image-container {
         width: 100%;

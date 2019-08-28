@@ -83,7 +83,7 @@ ul {
             left: 0;
             bottom: -10px;
             background-color: $main-color;
-            left: 6%;
+            left: 7%;
             @include prefixer(transform, translateX(-50%), ($prefix-list));
         }
     }

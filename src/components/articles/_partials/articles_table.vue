@@ -18,7 +18,7 @@
         <td>{{item.title}}</td>
         <td>{{item.date}}</td>
         <td>
-          <router-link style="margin:0px 5px;" class="far fa-edit btn btn-outline-info btn-sm"
+          <router-link style="margin:0px 5px;" class="far fa-edit btn btn-outline-info btn-sm edit-article"
             :to="{ name: 'EditArticle', params: { id: item.id } }"></router-link>
           <router-link style="margin:0px 5px;" class="fas fa-eye-slash btn btn-outline-success btn-sm" title="view details"
             :to="{name:'ViewArticle',params:{id:item.id}}"></router-link>

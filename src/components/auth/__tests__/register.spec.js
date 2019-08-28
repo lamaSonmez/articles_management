@@ -1,9 +1,12 @@
 import Vuex from 'vuex'
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Register from '@/components/auth/register'
+import Router from 'vue-router'
+
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
+localVue.use(Router);
 
 
 describe('Register Form', () => {

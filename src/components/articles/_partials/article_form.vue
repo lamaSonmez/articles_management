@@ -8,7 +8,7 @@
 
       <div class="form-group col-12">
         <label>Date : </label>
-        <input type="date" class="form-control date" v-model="article.date" required>
+        <input type="date" class="form-control" v-model="article.date" required>
       </div>
       <div class="form-group col-12">
         <label>Content : </label>
@@ -42,7 +42,7 @@
         <loader v-if="inProcess"></loader>
         <div class="response-message" v-if="responseMessage">
         <p>{{responseMessage}}</p>
-        <router-link to="/">GO To Articles </router-link>
+        <router-link to="/">Go To Articles </router-link>
         </div>
       </div>
     </div>
@@ -52,8 +52,7 @@
 
 <script>
   import Editor from '@tinymce/tinymce-vue';
-  import 'bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js'
-  import Loader from '../loader'
+  import Loader from '../../loader'
 
   import {
     mapActions,
@@ -113,23 +112,15 @@
       inProcess: state => state.article.inProcess,
       responseMessage: state => state.article.responseMessage
     }),
-    mounted() {
-      $('.date').datepicker({
-        format: "dd/mm/yyyy",
-        autoclose: true,
-        todayHighlight: true
-      });
-
-
-    }
+    
+    
   }
 
 </script>
 
 <style lang="scss" scoped>
-  @import '../../../node_modules/handy.sass.mixins/scss/shared';
-  @import '../../assets/sass/_variables';
-  @import '../../../node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min';
+  @import '../../../../node_modules/handy.sass.mixins/scss/shared';
+  @import '../../../assets/sass/_variables';
 
   #articleForm {
     .form-group {

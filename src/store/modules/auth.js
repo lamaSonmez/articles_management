@@ -93,6 +93,7 @@ const actions = {
                 localStorage.removeItem('current_user');
                 commit('setIsAuthenticated', false);
                 commit('setInProcess', false);
+                commit('setResponseMessage', 'Good Bye!!')
                 router.push('/login');
                 resolve()
             }, 5000)

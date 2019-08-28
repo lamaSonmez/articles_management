@@ -36,7 +36,7 @@
 
 
 <script>
-  import ArticleForm from './article_form'
+  import ArticleForm from './_partials/article_form'
   import Loader from '../loader'
   import {
     mapActions,

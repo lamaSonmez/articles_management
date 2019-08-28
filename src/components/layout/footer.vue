@@ -22,6 +22,10 @@
   @import '../../assets/sass/_variables';
 .footer{
     background-color:#000;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    width:100%;
     color:#fff;
     text-align:center;
     padding:10px 15px;

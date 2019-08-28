@@ -28,8 +28,8 @@
 </script>
 
 <style lang='scss' scoped>
- @import '../../../node_modules/handy.sass.mixins/scss/shared';
-  @import '../../assets/sass/_variables';
+ @import '../../../../node_modules/handy.sass.mixins/scss/shared';
+  @import '../../../assets/sass/_variables';
   .card {
         @include prefixer(box-shadow, 0 20px 40px rgba(0, 0, 0, .06), ($prefix-list));
         border:1px solid #fff;

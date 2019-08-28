@@ -29,7 +29,7 @@
 
 
 <script>
-  import ArticleForm from './article_form'
+  import ArticleForm from './_partials/article_form'
   import {
     mapActions,
     mapState

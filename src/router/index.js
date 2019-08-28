@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-
+import store from '../store'
 //auth components
 import Login from '@/components/auth/login'
 import Register from '@/components/auth/register'
@@ -11,6 +11,7 @@ import Register from '@/components/auth/register'
 import ArticlesHome from '@/components/articles/index'
 import AddArticle from '@/components/articles/add'
 import EditArticle from '@/components/articles/edit'
+import ViewArticle from '@/components/articles/view'
 
 Vue.use(Router)
 
@@ -48,6 +49,14 @@ const router = new Router({
                 path: '/articles/edit/:id',
                 name: 'EditArticle',
                 component: EditArticle,
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: '/articles/view/:id',
+                name: 'ViewArticle',
+                component: ViewArticle,
                 meta: {
                     requiresAuth: true
                 }

@@ -30,7 +30,7 @@ describe('Article actions', () => {
         })
 
     })
-    it('store article action', () => {
+    it('remove article action', () => {
         let article = { id: '30', title: 'test store article test', content: '<p>content of the article goes here</p>', image: null }
         let store = new Vuex.Store(articleConfig)
         store.dispatch('storeArticle', article).then(() => {

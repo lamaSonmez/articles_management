@@ -1,5 +1,5 @@
 import Vuex from 'vuex'
-import { mount, createLocalVue, shallowMount } from '@vue/test-utils'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vue from 'vue'
 import Login from '@/components/auth/login'
 import store from '../../../store'
@@ -20,7 +20,7 @@ describe('login Form', () => {
             })
     })
 
-    it('calls the login action correctly when the form is submited', () => {
+    it('calls the login action when the form is submited', () => {
         const wrapper = shallowMount(Login, {
             store,
             localVue,
@@ -33,5 +33,7 @@ describe('login Form', () => {
         wrapper.find('form').trigger('submit')
         expect(actions.login).toHaveBeenCalled()
     })
+
+
 
 })

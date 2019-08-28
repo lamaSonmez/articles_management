@@ -9,7 +9,7 @@ import store from './store'
 import VueLoaders from 'vue-loaders';
 
 Vue.use(VueLoaders);
-
+Vue.use(router);
 
 Vue.config.productionTip = false
 

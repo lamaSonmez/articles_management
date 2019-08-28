@@ -9,14 +9,14 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><router-link to="/" class="nav-link">Aricles</router-link></li>
+        <li class="nav-item"><router-link :to="{ name: 'ArticlesHome'}" class="nav-link">Aricles</router-link></li>
           <!-- Dropdown -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
               Hi {{current_user.first_name}}
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" @click="logout()"><span>Log Out</span><span
+              <a class="dropdown-item" id="logoutBtn" @click="logout()"><span>Log Out</span><span
                   class="fas fa-sign-out-alt icon"></span></a>
             </div>
           </li>

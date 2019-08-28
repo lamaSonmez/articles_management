@@ -97,7 +97,10 @@ import {
       }),
       computed:mapState({
         inProcess:state=>state.auth.inProcess,
-      })
+      }),
+      created(){
+      this.$store.commit('setResponseMessage',null);
+    }
 
   }
 

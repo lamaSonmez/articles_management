@@ -54,6 +54,9 @@
     transition: opacity 1s ease;
     opacity: 0;
 }
+.view{
+  min-height:600px;
+}
 .view > div  {
   transition: height 0.2s;
 }

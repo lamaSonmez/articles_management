@@ -2,7 +2,7 @@
   <div class="addedit-article-selction">
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div class="col-8">
           <div class="row-title">
             <h2 v-if="article">{{article.title}}</h2>
             <div class="row-body">
@@ -17,6 +17,12 @@
             </div>
           </div>
         </div>
+         <div class="add-btn-container col-4">
+            <router-link to="/articles/add" class="btn btn-primary">
+              <span class="fas fa-plus icon"></span>
+              <span class="text">Add New Article</span>
+            </router-link>
+          </div>
       </div>
       <div class="row article-form-container">
        

@@ -123,7 +123,8 @@
         
         if (this.isBigSizeImage || this.isEmptyTitle || this.isEmptyContent || this.isEmptyDate || this.isEmptyImage) event.preventDefault();
         else{
-          this.$store.dispatch('storeArticle',this.article);
+          this.$store.dispatch('storeArticle',this.article).then(()=>{
+          });
         }
       },
     },
@@ -131,6 +132,9 @@
       inProcess: state => state.article.inProcess,
       responseMessage: state => state.article.responseMessage
     }),
+    created(){
+      this.$store.commit('setResponseMessage',null);
+    }
     
     
   }

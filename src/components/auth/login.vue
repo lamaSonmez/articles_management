@@ -87,7 +87,10 @@ import Loader from '../loader'
     computed:mapState({
        inProcess: state => state.auth.inProcess,
        responseMessage:state=>state.auth.responseMessage,
-    })
+    }),
+    created(){
+      this.$store.commit('setResponseMessage',null);
+    }
     }
   
 

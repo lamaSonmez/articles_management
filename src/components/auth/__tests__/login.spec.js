@@ -30,7 +30,6 @@ describe('login Form', () => {
             }
 
         })
-
         wrapper.find('form').trigger('submit')
         expect(actions.login).toHaveBeenCalled()
     })

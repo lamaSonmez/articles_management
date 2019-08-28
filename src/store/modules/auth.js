@@ -12,15 +12,16 @@ const state = {
 
 // getters
 const getters = {
-        user: state => {
-            return state.user;
+        users: state => {
+            return state.users;
         },
+        current_user: state => {
+            return state.current_user
+        }
     }
     // actions
 const actions = {
-    register({
-        commit
-    }, user) {
+    register({ commit }, user) {
         commit('setInProcess', true);
         return new Promise((resolve, reject) => {
             setTimeout(() => {

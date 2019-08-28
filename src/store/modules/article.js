@@ -10,7 +10,7 @@ const state = {
 // getters
 const getters = {
         articles: state => {
-            return state.articles;
+            return state.articles
         },
         article: state => {
             return state.article

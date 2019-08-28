@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+import createPersistedState from 'vuex-persistedstate'
 
+//modules
 import article from '../store/modules/article'
 import auth from '../store/modules/auth'
 
@@ -12,5 +13,6 @@ export default new Vuex.Store({
         article,
         auth
     },
+    plugins: [createPersistedState()],
 
 })

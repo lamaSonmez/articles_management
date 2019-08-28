@@ -4,13 +4,12 @@
     </div>
 </template>
 <script>
-import 'vue-loaders/dist/vue-loaders.css';
-
 export default {
     name:'Loader',
 }  
 </script>
 <style lang="scss">
+@import '../../node_modules/vue-loaders/dist/vue-loaders.css';
 
     .grid-loader{
       text-align:center;

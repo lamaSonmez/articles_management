@@ -31,12 +31,12 @@
                         <div class="form-group col-12">
                           <label for="email" class="form-label"><span class="far fa-user icon"></span><span
                               class="text">Email</span></label>
-                          <input id="email" type="email" class="form-control" v-model="user.email">
+                          <input id="email" type="email" class="form-control" required v-model="user.email">
                         </div>
                         <div class="form-group col-12">
                           <label for="password" class="form-label"><span class="fas fa-key icon"></span><span
                               class="text">Password</span></label>
-                          <input id="password" type="password" class="form-control" v-model="user.password">
+                          <input id="password" type="password" class="form-control" required v-model="user.password">
                         </div>
                         <div class=" form-group col-12">
                           <button type="submit" class="btn btn-primary">

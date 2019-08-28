@@ -40,7 +40,6 @@
 <script>
   import ArticlesTable from './_partials/articles_table'
   import Loader from '../loader'
-
   import {
     mapActions,
     mapState

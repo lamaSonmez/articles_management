@@ -23,17 +23,21 @@ describe('Article Form', () => {
 
 
     it('calls the storeArticle action when the form is submited', () => {
+        const mockMethods = {
+            validateForm: jest.fn()
+        }
         const wrapper = shallowMount(ArticleForm, {
             store,
             localVue,
             computed: {
                 inProcess: () => false,
                 responseMessage: () => null
-            }
+            },
+            methods: mockMethods
 
         })
         wrapper.find('form').trigger('submit')
-        expect(actions.storeArticle).toHaveBeenCalled()
+        expect(mockMethods.validateForm).toHaveBeenCalled()
     })
 
 

